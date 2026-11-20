@@ -1,0 +1,11 @@
+project: savantenvs/managarm
+target: extract_ostrace
+
+cmds:
+  - cmd: /mayhem/mayhem/out/extract-ostrace @@
+    afl: true
+    timeout: 5
+
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/extract_ostrace/testsuite
